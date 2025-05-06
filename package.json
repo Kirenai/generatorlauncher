@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "gt": "./index.js"
+    "gt": "dist/index.js"
   },
   "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,5 +19,10 @@
   ],
   "author": "",
   "license": "GPL-3.0",
-  "description": "A friendly CLI to launch a Java JAR file with a bash script."
+  "description": "A friendly CLI to launch a Java JAR file with a bash script.",
+  "devDependencies": {
+    "@types/node": "^22.15.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
