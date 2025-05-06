@@ -1,0 +1,21 @@
+{
+  "name": "generatorlauncher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "gt": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "launcher",
+    "automation",
+    "java",
+    "bash"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "description": "A friendly CLI to launch a Java JAR file with a bash script."
+}
