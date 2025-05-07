@@ -1,3 +1,3 @@
-import { index } from './runner'
+import runner from './runner';
 
-index()
+runner()

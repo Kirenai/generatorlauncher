@@ -14,7 +14,7 @@ if (!GENERATOR) {
   process.exit(1)
 }
 
-export function index() {
+function runner() {
   const generatorPath = path.join(GENERATOR!, "generator.jar")
 
   exec(`bash ${generatorPath}`, (error, stdout, stderr) => {
@@ -30,3 +30,5 @@ export function index() {
     console.log('✅ stdout:', stdout)
   })
 }
+
+export default runner;
