@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { exec } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -18,18 +18,18 @@ if (!GENERATOR) {
 function runner() {
   const generatorPath = path.join(GENERATOR!, "generator.jar")
 
-  exec(`java -jar ${generatorPath}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(error)
-      process.exit(1)
-    }
+  const child = spawn('java', ['-jar', generatorPath], {
+    stdio: 'inherit'
+  });
 
-    if (stderr) {
-      console.error(`⚠️ stderr:`, stderr)
+  child.on('exit', (code) => {
+    if (code !== 0) {
+      console.error(`❌ The process finished with code ${code}`);
+      process.exit(code ?? 1);
+    } else {
+      console.log('✅ Process completed successfully');
     }
-
-    console.log('✅ stdout:', stdout)
-  })
+  });
 }
 
 export default runner;
