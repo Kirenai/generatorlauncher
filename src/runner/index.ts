@@ -18,7 +18,7 @@ if (!GENERATOR) {
 function runner() {
   const generatorPath = path.join(GENERATOR!, "generator.jar")
 
-  exec(`bash java -jar ${generatorPath}`, (error, stdout, stderr) => {
+  exec(`java -jar ${generatorPath}`, (error, stdout, stderr) => {
     if (error) {
       console.error(error)
       process.exit(1)
